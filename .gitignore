@@ -14,7 +14,9 @@
 /.idea
 
 # Used by dotenv library to load environment variables.
-# .env
+.env
+.env.local
+.env.*.local
 
 # Ignore Byebug command history file.
 .byebug_history
@@ -59,3 +61,7 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 log/
+
+#ignore masterkeys
+/config/master.key
+*.key
