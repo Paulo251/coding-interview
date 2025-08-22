@@ -1,0 +1,4 @@
+<h1><%= @subject %></h1>
+<p>Relatório gerado em: <%= Time.current.strftime("%d/%m/%Y %H:%M") %></p>
+
+<pre><%= JSON.pretty_generate(@data) %></pre>

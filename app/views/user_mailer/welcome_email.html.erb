@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Bem-vindo ao Nosso Sistema, <%= @user.display_name %>!</h1>
+  
+  <p>Seu cadastro foi realizado com sucesso. Aqui estão seus dados:</p>
+  
+  <ul>
+    <li><strong>Nome de usuário:</strong> <%= @user.username %></li>
+    <li><strong>Email:</strong> <%= @user.email %></li>
+    <li><strong>Empresa:</strong> <%= @user.company.name %></li>
+  </ul>
+  
+  <p>Para acessar o sistema, clique no link abaixo:</p>
+  <p><a href="<%= @login_url %>" style="background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Acessar Sistema</a></p>
+  
+  <p>Atenciosamente,<br>Equipe do Sistema</p>
+</body>
+</html>

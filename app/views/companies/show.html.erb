@@ -1,0 +1,11 @@
+<h1>Nova Empresa</h1>
+
+<%= form_with(model: @company) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.submit "Criar Empresa" %>
+  </div>
+<% end %>

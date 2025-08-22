@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :companies, only: [] do
-    resources :users, only: [:index]
-  end
+  get "companies/index"
+  get "companies/show"
+  get "companies/new"
+  get "companies/create"
+  get "companies/edit"
+  get "companies/update"
+  get "companies/destroy"
 
-  resources :tweets, only: [:index]
-
-  resources :users, param: :username, only: [:index, :show] do
+  resources :users, only: [:index, :show] do
     resources :tweets, only: [:index]
   end
 
+
+  resources :tweets, only: [:index]
+
+  get '/users/by_username/:username', to: 'users#by_username', as: :user_by_username
+
+
+  post '/reports/generate', to: 'reports#generate'
 end

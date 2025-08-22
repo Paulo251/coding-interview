@@ -1,0 +1,45 @@
+<h1> Empresas Cadastradas</h1>
+
+<% if @companies.any? %>
+  <p>Total: <strong><%= @companies.count %></strong> empresas</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Website</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @companies.each do |company| %>
+        <tr>
+          <td><strong><%= company.name %></strong></td>
+          <td>
+            <% if company.respond_to?(:website) && company.website.present? %>
+            <a href="<%= company.website %>" target="_blank"><%= company.website %></a>
+            <% else %>
+              <em>Não informado</em>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to ' Ver', company, class: 'btn' %>
+            <%= link_to ' Editar', "/companies/#{company.id}/edit", class: 'btn' %>
+            <%= link_to ' Excluir', company, method: :delete, 
+                        data: { confirm: 'Tem certeza que deseja excluir esta empresa?' }, 
+                        class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div style="text-align: center; padding: 40px;">
+    <h3> Nenhuma empresa cadastrada</h3>
+    <p>Clique no botão abaixo para criar a primeira empresa.</p>
+  </div>
+<% end %>
+
+<div style="margin-top: 30px;">
+  <%= link_to ' Nova Empresa', "/companies/new", class: 'btn' %>
+</div>

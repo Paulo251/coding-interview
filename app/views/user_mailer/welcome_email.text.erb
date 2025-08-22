@@ -1,0 +1,13 @@
+
+Bem-vindo ao Nosso Sistema, <%= @user.display_name %>!
+
+Seu cadastro foi realizado com sucesso. Aqui estão seus dados:
+
+- Nome de usuário: <%= @user.username %>
+- Email: <%= @user.email %>
+- Empresa: <%= @user.company.name %>
+
+Para acessar o sistema: <%= @login_url %>
+
+Atenciosamente,
+Equipe do Sistema
